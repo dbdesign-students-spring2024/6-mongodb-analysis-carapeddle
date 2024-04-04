@@ -180,6 +180,7 @@ db.listings_clean.find().limit(2)
   >},
   <br>
   <br>
+
   >{
     _id: ObjectId('660cad19b6515eb2057558e3'),
     id: 107438,
@@ -369,7 +370,8 @@ db.listings_clean.find().limit(10).pretty()
   },
   <br>
   <br>
-  {
+
+  >{
     _id: ObjectId('660cad19b6515eb2057558e3'),
     id: 107438,
     listing_url: 'https://www.airbnb.com/rooms/107438',
@@ -478,7 +480,8 @@ db.listings_clean.find({$or: [{host_id: 1001280}, {host_id: 2361206},],}, {_id:0
   },
   <br>
   <br>
-  {
+
+  >{
     name: 'Rental unit in Geneva / *4.81 / 1 bedroom / 1 bed / 1.5 baths',
     <br>
     host_name: 'Mike',
@@ -491,7 +494,8 @@ db.listings_clean.find({$or: [{host_id: 1001280}, {host_id: 2361206},],}, {_id:0
   },
   <br>
   <br>
-  {
+
+  >{
     name: 'Rental unit in Geneva / *4.76 / 3 bedrooms / 4 beds / 2.5 baths',
     <br>
     host_name: 'Jean',
@@ -524,7 +528,7 @@ db.listings_clean.distinct("host_name", { "host_name": { $ne: "" } })
   'A.',
   <br>
   'Aaron'
->]
+]
 
 #### Insights Not Obvious in Raw Data
 Without the criteria that prohibits host_name from being equal to a blank space, it becomes apparent that at least one listing does not have information about the host name. The query also demonstrates that at least two people use the initial "A" as their host name, where one includes a period and another does not. 
@@ -552,7 +556,8 @@ db.listings_clean.find({neighbourhood: "Geneve, Switzerland", beds:{$gt:2}}, {_i
   },
   <br>
   <br>
-  {
+
+  >{
     name: 'Rental unit in Geneve / 3 bedrooms / 4 beds / 2 baths',
     <br>
     beds: 4,
@@ -563,7 +568,8 @@ db.listings_clean.find({neighbourhood: "Geneve, Switzerland", beds:{$gt:2}}, {_i
   },
   <br>
   <br>
-  {
+
+  >{
     name: 'Condo in Geneve / 3 bedrooms / 3 beds / 2.5 baths',
     <br>
     beds: 3,
@@ -572,7 +578,7 @@ db.listings_clean.find({neighbourhood: "Geneve, Switzerland", beds:{$gt:2}}, {_i
     <br>
     review_scores_rating: ''
   }
->]
+]
 
 #### Insights Not Obvious in Raw Data
 The results indicate that multiple listings are not rated. The beginning of the list of returned data provides information on listings that have not been rated or that have no information on ratings. The following listings are those with 5 stars. This information allows the viewer to compare prices for those listings that match their needs of more than 2 beds. The price can be compared among listings with the same ratings or with listings with other ratings. The viewer can see that one 3-bed listing with a rating of 5 goes for $100 while another 3-bed listing with a rating of 5 goes for $425. The viewer can compare these prices to a 3-bed listing with 3.5 stars, going for $302.
@@ -594,7 +600,7 @@ db.listings_clean.aggregate({$group: {_id: "$host_id", count: {$sum:1}}})
   { _id: 183199633, count: 2 },
   <br>
   { _id: 347734429, count: 1 }
->]
+]
 
 
 #### Insights Not Obvious in Raw Data
@@ -616,7 +622,7 @@ db.listings_clean.aggregate([{$group:{_id: "$neighbourhood", avgRating: {$avg: "
     { _id: 'Onex, GE, Switzerland', avgRating: 5 },
     <br>
     { _id: 'Laconnex, Geneve, Switzerland', avgRating: 5 }
->]
+]
 
 #### Insights Not Obvious in Raw Data
 This query allows viewers to search specifically for neighborhoods with a certain average rating that suits their needs. Rather than being forced to search through the raw data to find information on each listing in each neighborhood, the average rating of listings in each neighborhood is set out in an organized fashion. Several neighborhoods have an average rating of 5, such as 'Meinier, Geneve, Switzerland', 'Onex, GE, Switzerland', and 'Genthod, Geneva, Switzerland'. The organized nature of the returned data makes it easy to observe that the neighborhood with the highest rating under 5 stars is 'Collonge-Bellerive, Geneve, Switzerland'.
