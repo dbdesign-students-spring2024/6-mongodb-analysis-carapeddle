@@ -177,10 +177,10 @@ db.listings_clean.find().limit(2)
     calculated_host_listings_count_private_rooms: 1,
     calculated_host_listings_count_shared_rooms: 0,
     reviews_per_month: 0.49
-  },
+  >},
   <br>
   <br>
-  {
+  >{
     _id: ObjectId('660cad19b6515eb2057558e3'),
     id: 107438,
     listing_url: 'https://www.airbnb.com/rooms/107438',
