@@ -274,18 +274,13 @@ db.listings_clean.find().limit(10).pretty()
 #### Results
 
 ##### Three Lines with Formatting
->[
-<br>
-    {
-        <br>
+>[{
         _id: ObjectId('660cad19b6515eb2057558e2'),
         <br>
         id: 42515,
         <br>
         listing_url: 'https://www.airbnb.com/rooms/42515'
-        <br>
     }
-    <br>
 ]
 
 ##### Without Added Line Breaks
