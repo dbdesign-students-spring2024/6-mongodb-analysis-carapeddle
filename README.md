@@ -178,8 +178,7 @@ db.listings_clean.find().limit(2)
     calculated_host_listings_count_shared_rooms: 0,
     reviews_per_month: 0.49
   >},
-  <br>
-  <br>
+
 
   >{
     _id: ObjectId('660cad19b6515eb2057558e3'),
@@ -259,7 +258,7 @@ db.listings_clean.find().limit(2)
     calculated_host_listings_count_shared_rooms: 0,
     reviews_per_month: 0.15
   }
->]
+]
 
 #### Insights Not Obvious in Raw Data
 In the raw data, the relationships between the headings and the values are difficult to connect. With the data formatted so the heading points directly to the value, it is much easier to understand what each value represents and to compare these values with those in other documents. For example, it is easier to compare the price of these two documents. Noelle's listing with id# 42515 is $89.00 per night while F. M.'s listing with id# 107438 is $60.00 per night. Noelle's listing has a minimum night requirement of 3 nights, while F. M.'s listing has a minimum night requirement of 5 nights.
@@ -368,8 +367,7 @@ db.listings_clean.find().limit(10).pretty()
     calculated_host_listings_count_shared_rooms: 0,
     reviews_per_month: 0.49
   },
-  <br>
-  <br>
+
 
   >{
     _id: ObjectId('660cad19b6515eb2057558e3'),
@@ -449,7 +447,7 @@ db.listings_clean.find().limit(10).pretty()
     calculated_host_listings_count_shared_rooms: 0,
     reviews_per_month: 0.15
   }
->]
+]
 
 #### Insights Not Obvious in Raw Data
 Because of the organized format of the data, it is easy to understand the relationships between the column headings and the values they point to. The format of the data allows the viewer to recognize that F. M. and Noelle's listings do not have data under the neighbourhood heading. Furthermore, it is easy to visualize the listings' ratings for various factors. For example, Julik's listing with id# 411058 was given a 4.85 for review_scores_cleanliness, a 4.94 for review_scores_checkin, a 4.96 for review_scores_communication, and a 4.88 for review_scores_location.
@@ -478,8 +476,7 @@ db.listings_clean.find({$or: [{host_id: 1001280}, {host_id: 2361206},],}, {_id:0
     <br>
     price: '$165.00'
   },
-  <br>
-  <br>
+ 
 
   >{
     name: 'Rental unit in Geneva / *4.81 / 1 bedroom / 1 bed / 1.5 baths',
@@ -492,8 +489,7 @@ db.listings_clean.find({$or: [{host_id: 1001280}, {host_id: 2361206},],}, {_id:0
     <br>
     price: '$157.00'
   },
-  <br>
-  <br>
+ 
 
   >{
     name: 'Rental unit in Geneva / *4.76 / 3 bedrooms / 4 beds / 2.5 baths',
@@ -523,11 +519,9 @@ db.listings_clean.distinct("host_name", { "host_name": { $ne: "" } })
 #### Results
 
 >[
-  'A',
-  <br>
-  'A.',
-  <br>
-  'Aaron'
+'A',
+'A.',
+'Aaron'
 ]
 
 #### Insights Not Obvious in Raw Data
@@ -554,8 +548,6 @@ db.listings_clean.find({neighbourhood: "Geneve, Switzerland", beds:{$gt:2}}, {_i
     <br>
     review_scores_rating: ''
   },
-  <br>
-  <br>
 
   >{
     name: 'Rental unit in Geneve / 3 bedrooms / 4 beds / 2 baths',
@@ -566,8 +558,6 @@ db.listings_clean.find({neighbourhood: "Geneve, Switzerland", beds:{$gt:2}}, {_i
     <br>
     review_scores_rating: ''
   },
-  <br>
-  <br>
 
   >{
     name: 'Condo in Geneve / 3 bedrooms / 3 beds / 2.5 baths',
@@ -596,10 +586,10 @@ db.listings_clean.aggregate({$group: {_id: "$host_id", count: {$sum:1}}})
 
 >[
   { _id: 552225573, count: 1 },
-  <br>
-  { _id: 183199633, count: 2 },
-  <br>
-  { _id: 347734429, count: 1 }
+  
+  >{ _id: 183199633, count: 2 },
+  
+  >{ _id: 347734429, count: 1 }
 ]
 
 
